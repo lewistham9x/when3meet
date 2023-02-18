@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "prettier", "next/core-web-vitals"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    // Note: you must disable the base rule as it can report incorrect errors
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-undefined": "off"
+  }
 }
