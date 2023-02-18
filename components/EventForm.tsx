@@ -98,7 +98,7 @@ const EventForm = ({ onSuccess }: Props) => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-xxl">
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -136,10 +136,12 @@ const EventForm = ({ onSuccess }: Props) => {
               required
             />
           </div>
-          <DateRangePicker
-            ranges={[timeRange]}
-            onChange={(ranges) => setTimeRange(ranges.selection)}
-          />
+          <div className="flex justify-center mb-4 w-full">
+            <DateRangePicker
+              ranges={[timeRange]}
+              onChange={(ranges) => setTimeRange(ranges.selection)}
+            />
+          </div>
           {/* <Time
             label="Start Date"
             value={timeRange.startDate}

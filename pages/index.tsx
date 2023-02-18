@@ -4,7 +4,6 @@ import EventList from "../components/EventList";
 import EventForm from "../components/EventForm";
 import supabase from "../lib/supabaseClient";
 import { EventRow as Event } from "../lib/types";
-import "@/app/globals.css";
 interface Props {
   events: Event[];
 }
@@ -26,7 +25,7 @@ const Home: React.FC<Props> = ({ events }) => {
   };
 
   return (
-    <Layout title="When2meet">
+    <Layout title="when3meet">
       <div className="space-y-4">
         <EventForm onCreate={handleCreateEvent} onSuccess={() => {}} />
         <EventList events={eventList} />

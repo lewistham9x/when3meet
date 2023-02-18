@@ -24,12 +24,12 @@ const Layout: React.FC<Props> = ({ children, title }) => {
                 <img
                   className="block lg:hidden h-8 w-auto"
                   src="/logo.svg"
-                  alt="When2Meet"
+                  alt="when3meet"
                 />
                 <img
                   className="hidden lg:block h-8 w-auto"
                   src="/logo.svg"
-                  alt="When2Meet"
+                  alt="when3meet"
                 />
               </div>
               <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
