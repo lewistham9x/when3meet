@@ -3,7 +3,10 @@ import { useRouter } from "next/router";
 import { createEvent } from "@/pages/api/events";
 import { TimeRange } from "@/lib/types";
 import TimeZoneSelector from "./TimeZoneSelector";
-
+import Time from "./DateTime";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { Range, DateRangePicker } from "react-date-range"; // date range picker component
 type Props = {
   onCreate?: (event: any) => void;
   onSuccess: () => void;
@@ -12,7 +15,11 @@ type Props = {
 const EventForm = ({ onSuccess }: Props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [timeRange, setTimeRange] = useState<TimeRange>({ start: "", end: "" });
+  const [timeRange, setTimeRange] = useState<Range>({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: "selection",
+  });
   const [options, setOptions] = useState<any>({
     limit: 0,
     comments: false,
@@ -91,7 +98,7 @@ const EventForm = ({ onSuccess }: Props) => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-lg">
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -129,39 +136,22 @@ const EventForm = ({ onSuccess }: Props) => {
               required
             />
           </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 font-bold mb-2"
-              htmlFor="start_date"
-            >
-              Start date
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="start_date"
-              type="datetime-local"
-              value={timeRange.start}
-              onChange={handleStartDateChange}
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 font-bold mb-2"
-              htmlFor="end_date"
-            >
-              End date
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="end_date"
-              type="datetime-local"
-              value={timeRange.end}
-              onChange={handleEndDateChange}
-              required
-            />
-          </div>
-          <div className="mb-4">
+          <DateRangePicker
+            ranges={[timeRange]}
+            onChange={(ranges) => setTimeRange(ranges.selection)}
+          />
+          {/* <Time
+            label="Start Date"
+            value={timeRange.startDate}
+            onChange={handleStartDateChange}
+          />
+          <Time
+            label="End Date"
+            value={timeRange.endDate}
+            onChange={handleEndDateChange}
+          /> */}
+
+          {/* <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="timezone"
@@ -172,7 +162,7 @@ const EventForm = ({ onSuccess }: Props) => {
               value={timeZone}
               onChange={handleTimeZoneChange}
             />
-          </div>
+          </div> */}
           <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
