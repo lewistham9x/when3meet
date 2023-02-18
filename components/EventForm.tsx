@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { createEvent } from "@/pages/api/events";
 import { TimeRange } from "@/lib/types";
 import TimeZoneSelector from "./TimeZoneSelector";
-import Time from "./DateTime";
+// import Time from "./DateTime";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { Range, DateRangePicker } from "react-date-range"; // date range picker component
