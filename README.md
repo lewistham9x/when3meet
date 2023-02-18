@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+As a Backend Developer, I hate having to deal with front-end development. Styling and fixing UI related bugs just seem too tedious.
+Hence, I experimented using ChatGPT to build to rebuild when2meet.com in a more modern way. I also wanted to try out Next.js and TailwindCSS.
 
 ## Getting Started
 
